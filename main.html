@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seni söýýän</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: url(Hyades.jpg) center;
+      font-family: "Poppins", sans-serif;
+    }
+    .header {
+      width: 100vw;
+      background: url(pink-hearts-black-background-bokeh-glowing-lights-vibrant-2880x1800-3409.jpg) center/cover;
+      color: white;
+      text-align: center;
+      font-family: "Poppins", sans-serif;
+    }
+    .forbg {
+      padding: 20px;
+      backdrop-filter: blur(2px) brightness(20%);
+    }
+    .header h1 {
+      font-size: 50px;
+      margin: 0 0 20px;
+      font-family: Cursive;
+      font-weight: bolder;
+      color: white;
+      text-shadow: 0 0 10px #ED3333B0;
+      font-weight: bolder;
+      animation: ani 3s ease-in-out infinite;
+    }
+    @keyframes ani {
+      0% {
+        scale: 1;
+      }
+      50% {
+        scale: 1.1;
+      }
+      100% {
+        scale: 1;
+      }
+    }
+    .sorryText {
+      color: #FFFFFFCC;
+      line-height: 25px;
+      letter-spacing: 1px;
+    }
+    .bilewagt {
+      margin-top: 50px;
+      border: 2px solid #FFFFFF4F;
+      background: #FFFFFF1C;
+      border-radius: 30px;
+      padding: 10px 20px;
+      box-shadow: 0 0 20px #FF010187;
+    }
+    .bilewagt h2 {
+      font-size: 40px;
+      color: indianred;
+    }
+    .main {
+      backdrop-filter: blur(1px) brightness(40%);
+      color: white;
+      padding: 50px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .gallery {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+    h1{
+      font-size: 40px;
+      font-family: cursive;
+      text-shadow: 0 0 20px #F8176C;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .gallery p {
+      text-align: center;
+      margin-top: -45px;
+      color: #FFFFFFA3;
+    }
+    .photo-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 15px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .photo-container img {
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+    .overlay-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px 15px;
+      text-align: left; /* align text from left */
+      font-size: 16px;
+      font-weight: 500;
+      color: white;
+      background: rgba(0,0,0,0.6);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+      border-radius: 0 0 15px 15px; /* match rounded corners */
+    }
+
+    .photo-container.active .overlay-text {
+      opacity: 1;
+    }
+
+    .photounfilter.active {
+      display: block;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ff4d8d;
+      margin: 150px 0 50px;
+      text-align: center;
+    }
+    .card {
+      background: #EEEEEE24;
+      border-radius: 30px;
+      border: 2px solid  #EEEEEEA1;
+      padding: 25px;
+      text-align: center;
+      max-width: 350px;
+      width: 100%;
+    }
+    .music-icon {
+      background: #ff4d8d;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;;
+      margin: -55px auto 15px;
+      padding: 10px;
+    }
+    .song-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .artist {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #d0cde1;
+    }
+    audio {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: #F2F2F2;
+      font-style: italic;
+    }
+    #yatText {
+      margin: 150px 0 30px;
+    }
+    .yatlamalar {
+      padding: 25px 20px 10px;
+      margin: 0 20px 70px;
+      border-radius: 30px;
+      box-shadow: 0 0 30px #FFFFFF75;
+      position: relative;
+    }
+    #yatDay {
+      background: red;
+      font-size: 13px;
+      padding: 3px 5px;
+      border-radius: 10px;
+      position: absolute;
+      top: -13px;
+    }
+    .yatlamalar p {
+      margin-top: 15px;
+      color: #EBEBEBC7;
+      font-size: 15px;
+    }
+    .lastCont {
+      box-shadow: 0 0 20px #FFFFFF87;
+      border-radius: 20px;
+      padding: 10px 20px;
+      margin: 100px 20px 150px;
+      text-align: center;
+      font-size: 20px;
+    }
+    .own {
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="forbg">
+      
+      <h1>Hatyja</h1>
+      <div class="sorryText">Hayatta senin gibi özel bir insanın olması beni çok mutlu ediyor.
+Sen benim en güzel tesadüfümsün.
+Aşkım, her sabah seni düşünerek gözlerini açmaktır.
+Hayatım, seni sevdikçe önem kazandı.
+Kalbimdeki en değerli hazinem sensin.
+Seni cok seviyorum bitanem benim 🫂</div>
+      <div class="bilewagt">
+        <p>Söýgüli bolan gün sanymyz</p>
+        <h2>183 gün</h2>
+      </div>
+      <div class="bilewagt">
+        <p>Tanyşanymyzdan bäri gün sanymyz</p>
+        <h2>290 gün</h2>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="gallery">
+      <h1>Gallery</h1>
+      <p>(Surata Bas)</p>
+      <div class="photo-container">
+    <img src="/1757415882397.jpg" alt="photo 1">
+    <div class="overlay-text">Hawa, saňa degişli her bir suraty, ýatlamalary gözümiň nury ýaly saklaýan💖</div>
+  </div>
+
+  <div class="photo-container">
+    <img src="/1757415882410.jpg" alt="photo 2">
+    <div class="overlay-text">Biziň gowyşmagymyz üçin näçe kynçylyk bolsada senden hiç wagt ýüz öwürmen <b>Janym</b>🫂</div>
+  </div>
+
+  <div class="photo-container">
+    <img src="/1757415882422.jpg" alt="photo 3">
+    <div class="overlay-text">Seni söýmek meniň durmuşymdaky iň dogry karar we iň owadan duýgularyň biri🥰</div>
+  </div>
+  <div class="photo-container">
+    <img src="/1757415882442.jpg" alt="photo 5">
+    <div class="overlay-text">Sen meniň ýanymda bolmasaňam hemişe ýüregimdesiň <b>Janym</b> 💞</div>
+  </div>
+  <div class="photo-container">
+    <img src="/1757415882432.jpg" alt="photo 4">
+    <div class="overlay-text">Her gezek saňa seredemde gözleriňde gark bolýan💖</div>
+  </div>
+    </div>
+    
+    <div class="title">Aklymda çalýan aýdym</div>
+    <div class="card">
+    <svg height="64px" width="64px" class="music-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-4.62 -4.62 34.92 34.92" xml:space="preserve" fill="#000000" stroke="#000000" stroke-width="0.00025685"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path style="fill:#ffffff;" d="M22.08,0.098L10.97,3.497C9.624,3.881,8.533,5.285,8.533,6.631v11.557c0,0,0,0.158,0,0.162 c0,0-0.805-0.543-2.598-0.289c-2.633,0.374-4.768,2.395-4.768,4.515s2.135,3.419,4.768,3.045c2.635-0.372,4.566-2.331,4.566-4.452 c0,0,0-9.066,0-10.006s1.13-1.343,1.13-1.343l9.823-3.079c0,0,1.087-0.365,1.087,0.641s0,8.031,0,8.031s0,0.002,0,0.006 c0,0-1.001-0.576-2.794-0.358c-2.633,0.319-4.768,2.298-4.768,4.417c0,2.121,2.135,3.463,4.768,3.143 c2.635-0.319,4.77-2.297,4.77-4.418V1.84C24.517,0.494,23.425-0.286,22.08,0.098z"></path> </g> </g></svg>
+    <div class="song-title">Hemme Däl Ol</div>
+    <div class="artist">Maxi Tuwakow</div>
+
+    <audio controls>
+      <source src="/Maxi_Tuwakow_-_Hemme_däl_ol(256k).mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="note">
+      "Şul aýdymy her gezek diňlämde göz öňüme ýene sen gelýäň."
+    </div>
+  </div>
+    <h1 id="yatText">Ýatlamalar</h1>
+    <div class="yatlamalar">
+      <span id="yatDay">10-nji Mart 2025</span>
+      <h2>Ilkinji görüşme günümiz</h2>
+      <p>Seniň bilen ilkinji söygüli bolan günim meň dünyädäki iň bagtly adamlaryň biri boldym. InşAllah aşkım biziň söygümiz soňuna çenli dowam etsin we arzuwlarmyza ýeteli. Sen meniň dünyädäki iň uly bagtym boldyň. Sen meniň durmuşymy üytgetdiň akylym. Sen maňa Alla tarapyndan berlen iň uly sowgatlaryn biri.Söýýän seni ömrüm🫶🏻😍❤️</p>
+    </div>
+    <div class="yatlamalar">
+      <span id="yatDay">10-njy Iýul</span>
+      <h2>Doglan günüň</h2>
+      <p>Meň üçin seň dünýä inen günüňden möhüm wagt ýokdyr. Her doglan günüňde seň bilen täze ýaşyňy gutlamagyňa ýoldaş bolmak isleýän. Niçe ýaşlary bile ötürmekden gowy duýgy barmy ahyryn. Diňe doglan gün däl, saňa bolan söýgümi günüň her sekuntynda görkezmek isleýärin, <b>Ýürejigim❤.</b></p>
+    </div>
+    
+    <h1 style="margin: 100px 0 50px">❤️❤️❤️❤️❤️❤️</h1>
+    <!-- Google Maps - iframe embed with marker -->
+<div style="width:90%;max-width:800px;height:450px;margin:0 auto; border-radius: 20px">
+  <iframe
+    width="100%"
+    height="100%"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps?q=37.205984,60.731945&z=18&output=embed">
+  </iframe>
+</div>
+  
+  <div class="lastCont">
+    Senden näçe uzakda bolsamam hemişe yüregimde sen bitanem 🫂
+  </div>
+  <h3 class="own">Created by: &nbsp;&nbsp;<span style="color: red">Velaro™</span></h3>
+  </div>
+  
+  
+  
+  <script>
+    const containers = document.querySelectorAll('.photo-container');
+
+    containers.forEach(container => {
+      container.addEventListener('click', () => {
+        // Toggle only this photo’s text
+        if (container.classList.contains('active')) {
+          container.classList.remove('active'); // close if already open
+        } else {
+          containers.forEach(c => c.classList.remove('active')); // close others
+          container.classList.add('active'); // open clicked one
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
